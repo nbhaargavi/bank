@@ -8,8 +8,7 @@ class Account {
     private String accntholdername;
     private int id;
     private double balance;
-
-
+    
     Account(String accntname, int newid, double newbalance) {
         accntholdername = accntname;
         id = newid;
