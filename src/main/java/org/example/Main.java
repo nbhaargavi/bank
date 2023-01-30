@@ -25,13 +25,15 @@ class Account {
         l.info("u dont have enough money to withdraw");
         }
         else {
-            return balance -= amount;
+           balance = balance - amount;
+        return balance;
         }
         return amount;
     }
 
     double deposit(int amount) {
-        return balance = balance + amount;
+         balance = balance + amount;
+        return balance;
     }
 
     public static void main(String[] args) {
