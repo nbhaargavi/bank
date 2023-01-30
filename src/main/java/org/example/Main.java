@@ -1,8 +1,14 @@
 package org.example;
+
+import java.util.logging.Level;
+import java.util.logging.*;
+
 class Account {
+    Logger l=Logger.getLogger("kitty");
     private String accntholdername;
     private int id;
     private double balance;
+
 
     Account(String accntname, int newid, double newbalance) {
         accntholdername = accntname;
@@ -14,11 +20,13 @@ class Account {
         return balance;
     }
 
-    public double withdraw(int amount) {
+    public double withdraw(int amount)
+    {
         if (amount > balance) {
-            logger.log("u dont have enough money to withdraw");
-        } else {
-            return balance = balance - amount;
+        l.info("u dont have enough money to withdraw");
+        }
+        else {
+            return balance -= amount;
         }
         return amount;
     }
@@ -28,12 +36,13 @@ class Account {
     }
 
     public static void main(String[] args) {
+        Logger l=Logger.getLogger("kitty");
 
         Account account1 = new Account("bhaargavi", 1122, 20000);
-        logger.log("Account Holder name:" + " " + account1.accntholdername);
-        logger.log("Account ID:" + " " + account1.id);
-        logger.log("Initial Balance:" + account1.getBalance());
-        logger.log("Balance after Withdraw:" + " " + account1.withdraw(2500));
-        logger.log("Balance after deposit" + " " + account1.deposit(3000));
+        l.log(Level.INFO,() ->"Account Holder name:" + " " + account1.accntholdername);
+        l.log(Level.INFO,() ->"Account ID:" + " " + account1.id);
+        l.log(Level.INFO,() ->"Initial Balance:" + account1.getBalance());
+        l.log(Level.INFO,() ->"Balance after Withdraw:" + " " + account1.withdraw(2500));
+        l.log(Level.INFO,() ->"Balance after deposit" + " " + account1.deposit(3000));
     }
 }
