@@ -31,7 +31,7 @@ class Account {
         return amount;
     }
 
-    double deposit(int amount) {
+    public double deposit(int amount) {
          balance = balance + amount;
         return balance;
     }
